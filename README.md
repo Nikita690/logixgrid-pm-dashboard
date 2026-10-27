@@ -1,66 +1,131 @@
 # LogixGrid Project Management Dashboard
 
-Responsive React dashboard for LogixGrid project and task operations. Data is mocked in a local API layer backed by `localStorage` — no backend required.
+A responsive and interactive project management dashboard built with React and Vite to streamline project tracking, task management, and team operations. The application uses a mock API layer backed by browser `localStorage`, so no backend server is required.
 
-## Stack
+## Tech Stack
 
-- React 19 + Vite
-- JavaScript (ES6+)
-- Bootstrap 5 / React Bootstrap
-- React Router
-- Context API
-- Recharts
-- @dnd-kit (kanban drag-and-drop)
+- **Frontend:** React 19, JavaScript (ES6+)
+- **Build Tool:** Vite
+- **UI Framework:** Bootstrap 5, React Bootstrap
+- **Routing:** React Router
+- **State Management:** React Context API
+- **Data Visualization:** Recharts
+- **Drag and Drop:** @dnd-kit
+- **Data Persistence:** Browser localStorage
 
-## Run locally
+## Features
+
+### Dashboard
+- Overview of project and task statistics.
+- Month and year filters.
+- Computed task counts for created, completed, pending, and overdue tasks.
+
+### Project Management
+- Create, view, update, and delete projects.
+- Manage project descriptions, dates, deadlines, statuses, and team assignments.
+
+### Task Management
+- Create and update tasks.
+- Change task statuses and assign team members.
+- Search, filtering, date sorting, and pagination.
+- Kanban board with drag-and-drop functionality.
+
+### User Experience
+- Responsive interface for different screen sizes.
+- Dark mode and light mode.
+- Loading, error, and empty states.
+- Protected dashboard routes.
+- Login session persistence across browser refreshes.
+
+## Prerequisites
+
+Before running the project, ensure you have installed:
+
+- Node.js (LTS version recommended)
+- npm
+- Git (optional, for cloning the repository)
+
+## Installation and Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Nikita690/logixgrid-pm-dashboard.git
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd logixgrid-pm-dashboard
+```
+
+### 3. Install dependencies
 
 ```bash
 npm install
+```
+
+### 4. Start the development server
+
+```bash
 npm run dev
 ```
 
-Build:
+Open the local URL displayed in your terminal, usually `http://localhost:5173/`.
+
+## Production Build
+
+To generate a production build:
 
 ```bash
 npm run build
+```
+
+To preview the production build locally:
+
+```bash
 npm run preview
 ```
 
-## Login (Gmail only)
+## Demo Login Credentials
 
-The login form accepts **@gmail.com** addresses. Mock accounts:
+The application uses mock authentication. The login form accepts Gmail addresses, and the following demo accounts are configured in the local seed data.
 
-| Email | Password | Role |
-| --- | --- | --- |
-| admin@gmail.com | Admin@123 | Admin |
-| pm@gmail.com | Project@123 | Project Manager |
-| alex@gmail.com | Team@123 | Developer |
-| priya@gmail.com | Team@123 | Designer |
-| sam@gmail.com | Team@123 | QA Engineer |
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@gmail.com | Admin@123 |
+| Project Manager | pm@gmail.com | Project@123 |
+| Developer | alex@gmail.com | Team@123 |
+| Designer | priya@gmail.com | Team@123 |
+| QA Engineer | sam@gmail.com | Team@123 |
 
-Session is stored in `localStorage` and survives refresh. Dashboard routes are protected. Use **Logout** in the top bar.
+**Note:** These credentials are for local demonstration only. Verify that each account exists in the project's seed data before using it.
 
-## What is included
+## Mock Data and Persistence
 
-- Dashboard totals for projects and tasks
-- Month/year picker with **computed** created / completed / pending / overdue task counts
-- Project CRUD (name, description, start date, deadline, status, team)
-- Task CRUD, status changes, user assignment
-- Search (debounced), combined filters, date sorting, pagination
-- Dark / light mode
-- Drag-and-drop task board
-- Loading, error, and empty states
+- Sample users, projects, and tasks are provided through the local mock data layer.
+- Application data is stored in the browser's `localStorage`.
+- No external database or backend service is required.
+- The login session persists across page refreshes.
 
-## Folder structure
+To reset the demo data, clear the `logixgrid_pm_db` key in browser localStorage. You can also clear `logixgrid_session` to reset the stored login session.
 
-```
+## Project Structure
+
+```text
 src/
-  api/            mock data service (separated from UI)
-  components/     reusable layout, dashboard, project, and task UI
-  context/        auth, theme, and workspace data
-  hooks/          debounce
-  pages/          route screens
-  utils/          dates, stats, validators
+├── api/          # Mock data service and local data handling
+├── components/   # Reusable layout, dashboard, project, and task components
+├── context/      # Authentication, theme, and workspace state
+├── hooks/        # Custom React hooks
+├── pages/        # Application route screens
+└── utils/        # Date utilities, statistics, and validation
 ```
 
-Reset demo data by clearing `logixgrid_pm_db` (and optionally `logixgrid_session`) from localStorage.
+## Repository
+
+GitHub: https://github.com/Nikita690/logixgrid-pm-dashboard
+
+---
+
+Developed as a project management dashboard assignment for LogixGrid.
